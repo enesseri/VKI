@@ -1,6 +1,17 @@
-# Vücut Kilo İndeksi Hesaplama
+# Vücut Kitle İndeksi Hesaplama
 
 Bu proje, kullanıcıların boy ve kilo bilgilerini kullanarak vücut kitle indeksini hesaplamalarına olanak tanıyan basit bir web uygulamasıdır.
+
+## NOTLAR
+
+Şu an bulunduğumuz konumda bir sonraki gün için planlanan çalışmalarımda;
+
+1-Bootstrap kullanımını sona erdirdim, Css'de kendi kütüphanemi oluşturacağım
+2- Css ile container'lerimizi şekillendirmek ve genel Css çalışmaları yapmak
+3- JS kısmında negatif değerleri ve üç haneden fazla girilen değerleri sınırlandırmak
+4- Genel anlamda çıkan sonuçların kullanıcılara doğru yönlendirmeler sağlaması ve sağlık tüyoları vermek gibi çalışmalar yapılması
+
+gibi planlarım mevcuttur.
 
 ## Başlangıç
 
