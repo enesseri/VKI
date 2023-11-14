@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -11,27 +17,53 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
-.container {
+
+.container1 {
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 500px;
   height: 400px;
   float: left;
   box-sizing: border-box;
   padding: 20px;
+  opacity: 0.7;
+  z-index: 1;
 }
-#container1 {
+
+.input-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
   background-color: #f0f0f0;
 }
-#container2 {
-  background-color: #d0d0d0;
+
+.button-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: #f0f0f0;
+  text-align: center;
 }
+
+.container2 {
+  background-color: #d0d0d0;
+  width: 500px;
+  height: 400px;
+  float: left;
+  box-sizing: border-box;
+  opacity: 0.7;
+  padding: 20px;
+}
+
 form {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-/* ... Diğer stiller ... */
 
 label {
   display: block;
@@ -41,20 +73,44 @@ label {
 input,
 select {
   width: 100%;
-  padding: 5px;
-  margin-bottom: 15px;
+  padding: 10px;
+  margin-bottom: 20px;
   box-sizing: border-box;
 }
+
 .button {
+  width: 100px;
   display: inline-block;
-  background-color: #0077b6;
+  background-color: rgba(0, 0, 255, 1);
   color: white;
   padding: 10px 20px;
-  margin: 10px 0;
   text-decoration: none;
   border-radius: 4px;
 }
 
 .button:hover {
-  background-color: #00528b;
+  background-color: rgba(0, 0, 255, 0.5);
+}
+
+.button.clear {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+.button.clear:hover {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.custom-alert {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #92000a;
+  color: #fff;
+  padding: 40px;
+  border: 1px solid #92000a;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
 }

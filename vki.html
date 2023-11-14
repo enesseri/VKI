@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <title>Vüvut Kitle İndeksi</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -13,26 +12,35 @@
   </head>
 
   <body>
-    <div id="container1" class="container">
-      <label for="boy">Boy(cm):</label>
-      <input type="text" id="boy" required />
-      <br />
-      <label for="kilo">Kilo(kg):</label>
-      <input type="text" id="kilo" required />
-      <br />
-      <label for="cinsiyet">Cinsiyet:</label>
-      <select id="cinsiyet" required>
-        <option value="">Seçiniz</option>
-        <option value="erkek">Erkek</option>
-        <option value="kadin">Kadın</option>
-      </select>
-      <br />
-      <button type="submit" class="button">Hesapla</button>
+    <div id="container1" class="container1">
+      <div class="input-container">
+        <label for="boy">Boy(cm):</label>
+        <input type="number" id="boy" required />
+        <br />
+        <label for="kilo">Kilo(kg):</label>
+        <input type="number" id="kilo" required />
+        <br />
+        <label for="cinsiyet">Cinsiyet:</label>
+        <select id="cinsiyet" required>
+          <option value="">Seçiniz</option>
+          <option value="erkek">Erkek</option>
+          <option value="kadin">Kadın</option>
+        </select>
+        <br />
+      </div>
+
+      <div class="button-container">
+        <button type="submit" class="button">Hesapla</button>
+        <button type="reset" class="button clear">Temizle</button>
+      </div>
     </div>
-    <div id="container2" class="container">
-      <h2>Sonuç:</h2>
+    <div id="container2" class="container2">
+      <h2></h2>
       <p id="sonuc"></p>
       <p id="ekleme"></p>
+    </div>
+    <div id="customAlert" class="custom-alert">
+      <p id="alertMessage"></p>
     </div>
 
     <script src="vki.js"></script>
