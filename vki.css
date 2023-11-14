@@ -9,8 +9,9 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100vh;
   background-image: url("healt.jpg");
   background-size: cover;
@@ -18,44 +19,59 @@ body {
   background-repeat: no-repeat;
 }
 
-.container1 {
-  background-color: #f0f0f0;
-  display: flex;
+header {
+  display: flex; /* alt alta sıraladık */
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 500px;
-  height: 400px;
-  float: left;
-  box-sizing: border-box;
-  padding: 20px;
-  opacity: 0.7;
+  width: 100%;
+  height: 100px;
+  background-color: rgba(f, 0, f, 0.5);
+  position: relative;
+  z-index: 2;
+}
+
+header h1 {
+  font-weight: bold;
+  font-style: normal;
+  color: #92000a;
+  margin-top: 20px;
+  position: relative;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+  height: calc(100vh - 100px);
+  position: relative;
   z-index: 1;
 }
 
-.input-container {
-  width: 100%;
+.container1,
+.container2 {
+  background-color: #f0f0f0;
+  width: 45%; /* Değişiklik burada: % birim kullanıldı */
+  max-width: 100%; /* Maksimum genişlik belirlendi */
+  height: 500px;
+  margin: 10px; /* Kenar boşluğu eklendi */
   box-sizing: border-box;
   padding: 20px;
-  background-color: #f0f0f0;
+  opacity: 0.8;
 }
 
+/* ------------------------------------------------------------------------------- */
+
 .button-container {
-  width: 100%;
+  width: 90%;
   box-sizing: border-box;
   padding: 20px;
   background-color: #f0f0f0;
   text-align: center;
-}
-
-.container2 {
-  background-color: #d0d0d0;
-  width: 500px;
-  height: 400px;
-  float: left;
-  box-sizing: border-box;
-  opacity: 0.7;
-  padding: 20px;
+  z-index: 5;
 }
 
 form {
@@ -78,6 +94,12 @@ select {
   box-sizing: border-box;
 }
 
+.input-container p {
+  text-align: center;
+  color: #92000a;
+  font-weight: bold;
+}
+
 .button {
   width: 100px;
   display: inline-block;
@@ -86,6 +108,7 @@ select {
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 4px;
+  z-index: 5;
 }
 
 .button:hover {
@@ -113,4 +136,34 @@ select {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 999;
+}
+@media screen and (max-width: 768px) {
+  .container1,
+  .container2 {
+    width: 90%; /* veya istediğiniz bir değer */
+    max-width: 100%; /* Yüzde değeri genişliğe göre değiştirin */
+    margin: 10px 0; /* Konteynerler arasındaki boşluğu ayarlayın */
+  }
+  .container1 {
+    order: -1;
+  }
+  header h1 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 500px) {
+  header h1 {
+    font-size: 20px;
+  }
+}
+/* Mobil görünüm için */
+@media screen and (max-width: 768px) {
+  body {
+    background-image: none; /* Arkaplan resmini kaldır */
+    background-color: #7dacd6;
+  }
+
+  header {
+    background-color: none; /* Başlık arka plan rengi değiştir */
+  }
 }

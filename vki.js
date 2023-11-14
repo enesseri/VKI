@@ -4,6 +4,7 @@ document
     event.preventDefault();
 
     // Input alanlarındaki değerleri temizle
+    document.getElementById("name").value = "";
     document.getElementById("boy").value = "";
     document.getElementById("kilo").value = "";
     document.getElementById("cinsiyet").value = "";
@@ -48,15 +49,21 @@ document.getElementById("kilo").addEventListener("input", function (event) {
 document.querySelector(".button").addEventListener("click", function (event) {
   event.preventDefault();
 
-  let boy = parseFloat(document.getElementById("boy").value);
+  let name = document.getElementById("name").value;
+  let boy = parseFloat(document.getElementById("boy").value); //parseFloat ondalıklı sayı
   let kilo = parseFloat(document.getElementById("kilo").value);
   let cinsiyet = document.getElementById("cinsiyet").value;
 
   // Kullanıcının değer girmesi kontrolü
   if (isNaN(boy) || isNaN(kilo) || cinsiyet === "") {
-    showCustomAlert("Lütfen tüm alanları doldurunuz.");
+    showCustomAlert("Lütfen zorunlu alanları doldurunuz.");
     return;
   }
+
+  console.log("Adı Soyadı:", name);
+  console.log("Boy(cm):", boy);
+  console.log("Kilo(kg):", kilo);
+  console.log("Cinsiyet:", cinsiyet);
 
   let sonuc = kilo / ((boy / 100) * (boy / 100));
   let indeks;
@@ -64,32 +71,32 @@ document.querySelector(".button").addEventListener("click", function (event) {
 
   if (sonuc < 18.5) {
     indeks = "İdeal Kilonun Altında";
-    link = ""; // Örneğin her durum için farklı bir link
-    applyStyle("blue"); // Renk
+    link = "";
+    applyStyle("blue");
   } else if (sonuc >= 18.5 && sonuc <= 24.9) {
     indeks = "İdeal Kilo";
     link = "";
-    applyStyle("green"); // Renk
+    applyStyle("green");
   } else if (sonuc >= 25 && sonuc <= 29.9) {
     indeks = "Fazla Kilolu";
     link =
       "https://hsgm.saglik.gov.tr/depo/birimler/saglikli-beslenme-ve-hareketli-hayat-db/Dokumanlar/Rehberler/Obezite-ve-Diyabet-Klinik-Rehberi.pdf";
-    applyStyle("yellow"); // Renk
+    applyStyle("red");
   } else if (sonuc >= 30 && sonuc <= 34.9) {
     indeks = "Birinci Derece Obezite";
     link =
       "https://hsgm.saglik.gov.tr/depo/birimler/saglikli-beslenme-ve-hareketli-hayat-db/Dokumanlar/Rehberler/Obezite-ve-Diyabet-Klinik-Rehberi.pdf";
-    applyStyle("orange"); // Renk
+    applyStyle("darkred");
   } else if (sonuc >= 35 && sonuc <= 39.9) {
     indeks = "İkinci Derece Obezite";
     link =
       "https://hsgm.saglik.gov.tr/depo/birimler/saglikli-beslenme-ve-hareketli-hayat-db/Dokumanlar/Rehberler/Obezite-ve-Diyabet-Klinik-Rehberi.pdf";
-    applyStyle("red"); // Renk
+    applyStyle("darkred");
   } else if (sonuc >= 40) {
     indeks = "Üçüncü Derece Obezite";
     link =
       "https://hsgm.saglik.gov.tr/depo/birimler/saglikli-beslenme-ve-hareketli-hayat-db/Dokumanlar/Rehberler/Obezite-ve-Diyabet-Klinik-Rehberi.pdf";
-    applyStyle("darkred"); // Renk
+    applyStyle("darkred");
   }
 
   // Sonucu ekrana yazdırdık
@@ -103,7 +110,7 @@ document.querySelector(".button").addEventListener("click", function (event) {
   // Linki ekrana yazdırdık
   let linkElement = document.createElement("a");
   linkElement.href = link;
-  linkElement.target = "_blank"; // Yeni pencerede açmak için
+  linkElement.target = "_blank";
   linkElement.innerText = "";
   linkElement.style.textDecoration = "none";
   eklemeElement.appendChild(document.createElement("br")); // Bir satır boşluk bırak
@@ -115,17 +122,17 @@ function generateDynamicText(sonuc, link) {
   let dynamicText = "";
 
   if (sonuc < 18.5) {
-    dynamicText += `<span style='color: blue;'><strong>İdeal kilonun altında</strong></span> <strong>olan bir vücut kitle indeksine sahipsiniz.<br><br> Daha fazla bilgi için Sağlık Bakanlığı çalışmalarını takip edebilirsiniz. <a href='${link}' target='_blank'>tıklayın</a>.`;
+    dynamicText += `<span style='color: blue;'><strong>İdeal kilonun altında</strong></span> <strong>olan bir vücut kitle indeksine sahipsiniz.<br><br> Daha fazla bilgi için Sağlık Bakanlığı çalışmalarını takip edebilirsiniz. Detaylı bilgi için  <a href='${link}' target='_blank'>tıklayın</a>.`;
   } else if (sonuc >= 18.5 && sonuc <= 24.9) {
     dynamicText += `<span style='color: green;'><strong>İdeal kilo aralığında</strong></span><strong> bir vücut kitle indeksine sahipsiniz. </strong>`;
   } else if (sonuc >= 25 && sonuc <= 29.9) {
-    dynamicText += `<span style='color: yellow;'><strong>Fazla kilolu</strong></span> bir vücut kitle indeksine sahipsiniz. <br><br> Daha fazla bilgi için Sağlık Bakanlığı çalışmalarını takip edebilirsiniz. <a href='${link}' target='_blank'>tıklayın</a>.`;
+    dynamicText += `<span style='color: red;'><strong>Fazla kilolu</strong></span> bir vücut kitle indeksine sahipsiniz. <br><br> Daha fazla bilgi için Sağlık Bakanlığı çalışmalarını takip edebilirsiniz. Detaylı bilgi için <a href='${link}' target='_blank'>tıklayın</a>.`;
   } else if (sonuc >= 30 && sonuc <= 34.9) {
-    dynamicText += `<span style='color: orange;'><strong>Birinci derece obeziteye</strong></span> işaret eden bir vücut kitle indeksine sahipsiniz. <br><br> Daha fazla bilgi için Sağlık Bakanlığı çalışmalarını takip edebilirsiniz. <a href='${link}' target='_blank'>tıklayın</a>.`;
+    dynamicText += `<span style='color: darkred;'><strong>Birinci derece obeziteye</strong></span> işaret eden bir vücut kitle indeksine sahipsiniz. <br><br> Daha fazla bilgi için Sağlık Bakanlığı çalışmalarını takip edebilirsiniz. Detaylı bilgi için  <a href='${link}' target='_blank'>tıklayın</a>.`;
   } else if (sonuc >= 35 && sonuc <= 39.9) {
-    dynamicText += `<span style='color: red;'><strong>İkinci derece obeziteye</strong></span> işaret eden bir vücut kitle indeksine sahipsiniz. <br><br> Daha fazla bilgi için Sağlık Bakanlığı çalışmalarını takip edebilirsiniz. <a href='${link}' target='_blank'>tıklayın</a>.`;
+    dynamicText += `<span style='color: darkred;'><strong>İkinci derece obeziteye</strong></span> işaret eden bir vücut kitle indeksine sahipsiniz. <br><br> Daha fazla bilgi için Sağlık Bakanlığı çalışmalarını takip edebilirsiniz. Detaylı bilgi için  <a href='${link}' target='_blank'>tıklayın</a>.`;
   } else if (sonuc >= 40) {
-    dynamicText += `<span style='color: darkred;'><strong>Üçüncü derece obeziteye</strong></span> işaret eden bir vücut kitle indeksine sahipsiniz. <br><br> Daha fazla bilgi için Sağlık Bakanlığı çalışmalarını takip edebilirsiniz. <a href='${link}' target='_blank'>tıklayın</a>.`;
+    dynamicText += `<span style='color: darkred;'><strong>Üçüncü derece obeziteye</strong></span> işaret eden bir vücut kitle indeksine sahipsiniz. <br><br> Daha fazla bilgi için Sağlık Bakanlığı çalışmalarını takip edebilirsiniz. Detaylı bilgi için  <a href='${link}' target='_blank'>tıklayın</a>.`;
   }
 
   dynamicText += "<span style='display: block; margin-top: 20px;'></span>";
