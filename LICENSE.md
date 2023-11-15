@@ -6,7 +6,7 @@ Aşağıdaki lisans sözleşmesi, bu yazılım ve ilgili belgelendirme dosyalar�
 
 The MIT License (MIT)
 
-Copyright (c) 2022 Enes Seri
+Copyright (c) 2023 Enes Seri
 
 Bu yazılım ve ilgili belgelendirme dosyaları ("Yazılım"), aşağıdaki koşullara tabi olarak ve yazılımın kopyasını ve kullanımını kontrol eden herhangi bir kişi veya kuruluşa karşı sınırlı bir lisans verilmesi koşuluyla, kullanılabilir, değiştirilebilir ve dağıtılabilir:
 
